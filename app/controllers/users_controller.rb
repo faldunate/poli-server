@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    user.location = Location.all.sample
     if user.save
       render json: UserSerializer.new(user).serialized_json, status: :ok
     else
